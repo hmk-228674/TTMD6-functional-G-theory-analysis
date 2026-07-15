@@ -19,7 +19,7 @@
 
 要求：
 
-- Python 3.10 及以上；
+- 精确复现使用 Python 3.12；Python 3.10 及以上仅用于范围依赖下的兼容性测试；
 - `bsdtar`，且支持 RAR5；
 - NumPy 2.x、pandas 2/3、SciPy 1.x、Matplotlib 3.x、Pillow 10–12；
 - Arial、Helvetica、Liberation Sans 或 DejaVu Sans 中至少一种；公开仓库统一生成英文图件。
@@ -30,13 +30,15 @@
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-lock.txt
 ```
+
+精确复现归档的论文结果时，应使用 Python 3.12 和 `requirements-lock.txt`；已记录的冷复现环境为 Python 3.12.13。`requirements.txt` 给出适用于 Python 3.10 及以上版本的较宽依赖范围，供开发和兼容性测试使用，不能替代归档软件环境的精确说明。
 
 可在运行前核验本发布链代码未被改动：
 
 ```bash
-shasum -a 256 -c CODE_MANIFEST.sha256
+shasum -a 256 -c SHA256SUMS
 ```
 
 在 Debian/Ubuntu 上可另外安装 `libarchive-tools`；macOS 系统自带可用的 `bsdtar`。

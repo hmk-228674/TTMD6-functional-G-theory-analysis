@@ -48,6 +48,8 @@ def check() -> list[str]:
         rel = path.relative_to(ROOT)
         if path.resolve() == Path(__file__).resolve():
             continue
+        if path.name.startswith("._") or "__MACOSX" in rel.parts:
+            failures.append(f"Forbidden macOS archive metadata: {rel}")
         if path.suffix.lower() in FORBIDDEN_SUFFIXES:
             failures.append(f"Forbidden third-party/cache file: {rel}")
         if path.suffix.lower() in TEXT_SUFFIXES:
@@ -89,6 +91,29 @@ def check() -> list[str]:
         for suffix in (".png", ".pdf", ".svg", ".tif"):
             if not (ROOT / "figures" / f"{base}{suffix}").is_file():
                 failures.append(f"Missing figure format: figures/{base}{suffix}")
+
+    citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+    if 'family-names: "Han"' not in citation or 'given-names: "Mingke"' not in citation:
+        failures.append("CITATION.cff does not identify the software author as Mingke Han")
+    if 'family-names: "hmk-228674"' in citation:
+        failures.append("CITATION.cff uses a GitHub username as the software author")
+    citation_lines = citation.splitlines()
+    has_version = any(line.startswith("version:") for line in citation_lines)
+    has_release_date = any(line.startswith("date-released:") for line in citation_lines)
+    if has_version != has_release_date:
+        failures.append("CITATION.cff version and date-released must be present or absent together")
+
+    license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
+    if "Copyright (c) 2026 Mingke Han" not in license_text:
+        failures.append("LICENSE copyright holder is not Mingke Han")
+
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    if "python -m pip install -r requirements-lock.txt" not in readme:
+        failures.append("README exact-reproduction command does not install requirements-lock.txt")
+    if "use Python 3.12 and `requirements-lock.txt`" not in readme:
+        failures.append("README does not state the Python 3.12 exact-environment requirement")
+    if "not covered by either repository license" not in readme:
+        failures.append("README does not state the raw-archive license boundary")
 
     manifest = ROOT / "SHA256SUMS"
     if manifest.is_file():

@@ -10,6 +10,8 @@ env/
 .env
 
 .DS_Store
+._*
+__MACOSX/
 Thumbs.db
 
 TTMD6.rar

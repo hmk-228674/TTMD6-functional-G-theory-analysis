@@ -22,6 +22,7 @@ For the detailed Chinese instructions, see [docs/README_zh-CN.md](docs/README_zh
 - REML numerical self-tests: 13/13 passed.
 - Figure QA: 7/7 passed; fixed 162 mm width, 600 dpi LZW TIFF, editable SVG text, and zero detected text-boundary violations.
 - Random seed: `20260712` (assumption diagnostics use the separately recorded seed `20260713`).
+- Release status: release candidate; no `v1.0.0` GitHub release or archival DOI has yet been issued.
 
 The machine-readable record is [reference_results/reproduction/REPRODUCTION_STATUS.json](reference_results/reproduction/REPRODUCTION_STATUS.json). The archived reference outputs are checks against a known successful run; the pipeline does not read them when reproducing the analysis.
 
@@ -44,22 +45,26 @@ The third-party coordinate archive is **not redistributed** in this repository. 
 | MD5 | `1c9ce9cbf79dd35dd22f16a7199e2a8c` |
 | SHA-256 | `93d1b52a470f14b9dc0ba0600959bff921be891a3da1b71e609bd328224b354d` |
 
+The exact analyzed archive is identified here by filename, byte count, MD5, and SHA-256. If the currently accessible source record supplies a byte-distinct archive, this workflow intentionally refuses to treat that archive as analytically interchangeable. The repository therefore supports exact verification of the analyzed input identity but does not assert that every later TTMD6 distribution is byte-identical to that input.
+
 The current Figshare record (concept DOI [10.6084/m9.figshare.31746358](https://doi.org/10.6084/m9.figshare.31746358)) has been reported with a different byte count. Do not assume byte identity across records; verify the hash before analysis. The program stops before extraction if the input identity differs.
 
 ## Run the analysis
 
-Requirements: Python 3.10 or newer, a `bsdtar` build with RAR5 support, and the packages in `requirements.txt`.
+Exact reproduction of the archived results requires Python 3.12, a `bsdtar` build with RAR5 support, and the packages recorded in `requirements-lock.txt`.
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
+python -m pip install -r requirements-lock.txt
 
 python reproduce_all.py \
   --rar /absolute/path/TTMD6.rar \
   --out /absolute/path/ttmd6_reproduced
 ```
+
+For exact reproduction of the archived manuscript results, use Python 3.12 and `requirements-lock.txt`; the recorded clean run used Python 3.12.13. The broader `requirements.txt` defines supported dependency ranges for Python 3.10 or newer and is used for compatibility-oriented testing. It is not a byte-for-byte specification of the archived software environment.
 
 The output directory must be new or empty. A successful run ends with `Reproduction PASS` and writes `REPRODUCTION_STATUS.json`, `FILE_INVENTORY.csv`, all analysis tables, and all seven figures. For a non-analytical input/dependency check:
 
@@ -93,10 +98,10 @@ Changing `--n-bootstrap` or `--n-balanced-resamples` is intended only for develo
 - Archive rank is only an ordering proxy and is not asserted to be verified acquisition time.
 - Results describe within-session relative distinguishability for this archive and do not establish cross-day reliability, absolute agreement, responsiveness, or classification performance.
 
-## Licensing
+## License
 
-Original code is released under the [MIT License](LICENSE). Documentation, figures, and derived tabular outputs created for this analysis are released under [CC BY 4.0](LICENSE-DATA). Neither license applies to the third-party TTMD6 raw archive.
+Source code in this repository is licensed under the [MIT License](LICENSE). Author-generated documentation, figures, figure source data, and derived tabular outputs are licensed under the [Creative Commons Attribution 4.0 International License](LICENSE-DATA). The third-party TTMD6 raw archive is not redistributed by this repository and is not covered by either repository license.
 
 ## Citation
 
-Until the associated article receives its final bibliographic record, cite this repository by title, owner, version or commit, URL, and access date. Release metadata are provided in `CITATION.cff`.
+Before a formal software release is issued, cite this repository by title, author, commit, URL, and access date. `CITATION.cff` intentionally omits `version` and `date-released` until the corresponding GitHub release exists; those fields must be added using the actual release tag and date before archival DOI registration.

@@ -1,0 +1,14 @@
+﻿test,waveform,action_id,max_abs_error,max_relative_error,tolerance,passed,interior_nodes,phase_nodes
+unbalanced_sufficient_objective_equals_dense_REML,synthetic,,1.7763568394e-14,1.7763568394e-15,1e-10,True,,
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,racket,1,4.17961936563e-05,3.86567580425e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,racket,2,0.000169342916593,3.97932339934e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,racket,3,1.55181834458e-05,4.70862457023e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,racket,4,1.37764606336e-05,3.57986456395e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,racket,5,9.62337929025e-05,3.98779195621e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,racket,6,1.22942479948e-05,3.90809879427e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,body_configuration,1,8.87748699885e-07,4.55266485565e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,body_configuration,2,3.52077593213e-06,5.74869077228e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,body_configuration,3,9.46174860683e-07,5.75457388415e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,body_configuration,4,4.78108869939e-07,5.11018465776e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,body_configuration,5,8.60125666247e-07,4.75310792765e-07,2e-05,True,200,200
+actual_30x50_profile_REML_equals_balanced_ANOVA_REML,body_configuration,6,7.09319245118e-07,4.56323646645e-07,2e-05,True,200,200

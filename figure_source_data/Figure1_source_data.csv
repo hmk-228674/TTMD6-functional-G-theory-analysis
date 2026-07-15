@@ -1,0 +1,9 @@
+﻿item,count
+athletes,30
+fixed_action_labels,6
+trials_per_cell,50
+primary_coordinate_pairs,9000
+structural_zero_affected_body_trials,190
+nominal_length_gt_200_trials,1180
+whole_athlete_bootstrap_replicates,5000
+balanced_subsamples,1000

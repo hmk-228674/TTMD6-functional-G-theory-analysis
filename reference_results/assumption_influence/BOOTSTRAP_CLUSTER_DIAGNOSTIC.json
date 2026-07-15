@@ -1,0 +1,11 @@
+{
+  "bootstrap_replicates": 5000,
+  "bootstrap_seed": 20260712,
+  "drawn_clusters_per_replicate_with_replacement": 30,
+  "unique_clusters_mean": 19.1352,
+  "unique_clusters_min": 13,
+  "unique_clusters_p025": 16.0,
+  "unique_clusters_median": 19.0,
+  "unique_clusters_p975": 22.0,
+  "unique_clusters_max": 26
+}

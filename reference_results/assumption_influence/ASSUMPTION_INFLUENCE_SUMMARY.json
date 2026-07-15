@@ -1,0 +1,29 @@
+{
+  "archive_order": {
+    "cells": 180,
+    "all_numeric_indices_contiguous": true,
+    "chronological_order_verified": false,
+    "lag1_rho_min": 0.0754510638860434,
+    "lag1_rho_max": 0.3283177176414321
+  },
+  "backhand_drive_racket": {
+    "players_with_hampel_flags": 27,
+    "total_hampel_flags": 309,
+    "total_flagged_trials": 292,
+    "main_LOO_integer_n90_min": 24.0,
+    "main_LOO_integer_n90_max": 29.0,
+    "hampel_LOO_integer_n90_min": 17.0,
+    "hampel_LOO_integer_n90_max": 20.0
+  },
+  "settings": {
+    "seed": 20260713,
+    "bootstrap_seed": 20260712,
+    "permutations": 5000,
+    "acf_max_lag": 10,
+    "peak_smooth_window": 11,
+    "peak_search_interval_pct": [
+      10.0,
+      90.0
+    ]
+  }
+}

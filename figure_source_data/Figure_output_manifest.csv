@@ -1,0 +1,8 @@
+﻿figure,width_mm,height_mm,fixed_width_pass,tiff_width_px,tiff_height_px,tiff_expected_width_px_600dpi,tiff_dimension_pass,tiff_compression_tag,tiff_lzw_pass,tiff_dpi_x,tiff_dpi_y,tiff_600dpi_pass,svg_editable_text_pass,text_boundary_violation_count,text_boundary_violations
+Figure1_study_design_and_inference_boundary,162.052,112.014,True,3828,2646,3828,True,5,True,600.0,600.0,True,True,0,[]
+Figure2_pointwise_dispersion_for_six_fixed_labels,162.052,124.96799999999999,True,3828,2952,3828,True,5,True,600.0,600.0,True,True,0,[]
+Figure3_action_specific_relative_reliability,162.052,139.95399999999998,True,3828,3306,3828,True,5,True,600.0,600.0,True,True,0,[]
+Figure4_dependence_registration_and_quality_sensitivity,162.052,150.876,True,3828,3564,3828,True,5,True,600.0,600.0,True,True,0,[]
+FigureS1_archive_boundary_and_resampling_robustness,162.052,125.984,True,3828,2976,3828,True,5,True,600.0,600.0,True,True,0,[]
+FigureS2_distribution_of_Hampel_type_flags,162.052,125.984,True,3828,2976,3828,True,5,True,600.0,600.0,True,True,0,[]
+FigureS3_pointwise_marginal_bootstrap_intervals,162.052,90.932,True,3828,2148,3828,True,5,True,600.0,600.0,True,True,0,[]

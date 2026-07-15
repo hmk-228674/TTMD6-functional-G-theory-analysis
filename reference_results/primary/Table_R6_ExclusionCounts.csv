@@ -1,0 +1,7 @@
+﻿action_id,action_label_en,action_label,original_trials,excluded_rawlen_gt_200,retained_trials,retained_percent,min_trials_per_athlete,median_trials_per_athlete,max_trials_per_athlete,mean_trials_per_athlete
+1,forehand_attack,forehand attack,1500,205,1295,86.3333333333,29,45.5,50,43.1666666667
+2,forehand_drive,forehand drive,1500,317,1183,78.8666666667,18,39,50,39.4333333333
+3,forehand_push,forehand push,1500,304,1196,79.7333333333,26,41,50,39.8666666667
+4,backhand_attack,backhand attack,1500,59,1441,96.0666666667,39,49.5,50,48.0333333333
+5,backhand_drive,backhand drive,1500,142,1358,90.5333333333,35,45.5,50,45.2666666667
+6,backhand_push,backhand push,1500,153,1347,89.8,20,47.5,50,44.9

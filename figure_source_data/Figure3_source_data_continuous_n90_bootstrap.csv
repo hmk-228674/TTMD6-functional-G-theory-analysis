@@ -1,0 +1,13 @@
+﻿waveform,action_id,action_label,target_R_L2,replicates,continuous_median,integer_median,continuous_required_n_p025,continuous_required_n_p975,integer_required_n_p025,integer_required_n_p975,action_code
+body_configuration,1,forehand attack,0.9,5000,5.43785087761,6,3.51803105748,8.94486543895,4,9,FA
+body_configuration,2,forehand drive,0.9,5000,5.47297704885,6,3.69224727285,8.87732947068,4,9,FD
+body_configuration,3,forehand push,0.9,5000,3.42837212355,4,2.39946224749,5.21356892088,3,6,FP
+body_configuration,4,backhand attack,0.9,5000,6.61923076432,7,5.010747727,9.24176396561,6,10,BA
+body_configuration,5,backhand drive,0.9,5000,8.1919888128,9,6.31215705002,11.0676124957,7,12,BD
+body_configuration,6,backhand push,0.9,5000,3.60655884686,4,2.52462930535,5.33929642548,3,6,BP
+racket,1,forehand attack,0.9,5000,6.12422812254,7,3.80217401416,10.2944366086,4,11,FA
+racket,2,forehand drive,0.9,5000,6.98786650259,7,5.17597745212,10.0388824229,6,11,FD
+racket,3,forehand push,0.9,5000,8.11126351587,9,5.46514440906,11.5956380653,6,12,FP
+racket,4,backhand attack,0.9,5000,17.1597429366,18,12.2550711863,26.5346912271,13,27,BA
+racket,5,backhand drive,0.9,5000,27.2711072931,28,17.6472709733,43.4766514532,18,44,BD
+racket,6,backhand push,0.9,5000,10.2693325581,11,7.86555561547,14.3324904286,8,15,BP

@@ -1,0 +1,16 @@
+TTMD6 cached-waveform QC note
+===============================
+
+No trial is removed from the primary action-specific model on the basis of its
+curve maximum.  The most extreme cached aggregated-human curve is
+human_120_955_2_4_200_188.csv (maximum 257.572); the most extreme
+cached racket curve is bat_120_955_2_4_200_188.csv (maximum
+858.883).  Tables R13--R14 provide a complete audit and are
+not a post-hoc exclusion list.
+
+The publication analysis handles exact [0,0,0] human-joint triplets upstream
+as structural missingness.  A separately labelled local-Hampel transformation
+is used only as a quality-control sensitivity analysis.  Consequently, all
+results remain conditional on the archived coordinate representation and on
+the explicitly selected upstream derivation; they are not physical-speed or
+tracking-validity claims.

@@ -1,0 +1,121 @@
+{
+  "status": "complete",
+  "seed": 20260712,
+  "n_bootstrap_whole_athlete": 5000,
+  "n_balanced_subsamples_without_replacement": 1000,
+  "excluded_rawlen_gt_200": 1180,
+  "retained_rawlen_le_200": 7820,
+  "action_specific_minimum_m_after_exclusion": {
+    "1": 29,
+    "2": 18,
+    "3": 26,
+    "4": 39,
+    "5": 35,
+    "6": 20
+  },
+  "python": "3.12.13 (main, Mar  3 2026, 15:35:03) [Clang 21.1.4 ]",
+  "platform": "macOS-26.2-arm64-arm-64bit",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "scipy": "1.18.0",
+  "runtime_seconds": 9.353,
+  "self_tests_all_passed": true,
+  "key_full_balanced_results": [
+    {
+      "waveform": "racket",
+      "action_id": 1,
+      "action_label": "forehand attack",
+      "R_L2_m50": 0.9871718608516445,
+      "required_n_R_L2_80": 3.0,
+      "required_n_R_L2_90": 6.0
+    },
+    {
+      "waveform": "racket",
+      "action_id": 2,
+      "action_label": "forehand drive",
+      "R_L2_m50": 0.9851020314224426,
+      "required_n_R_L2_80": 4.0,
+      "required_n_R_L2_90": 7.0
+    },
+    {
+      "waveform": "racket",
+      "action_id": 3,
+      "action_label": "forehand push",
+      "R_L2_m50": 0.9830964407627251,
+      "required_n_R_L2_80": 4.0,
+      "required_n_R_L2_90": 8.0
+    },
+    {
+      "waveform": "racket",
+      "action_id": 4,
+      "action_label": "backhand attack",
+      "R_L2_m50": 0.9644531328936208,
+      "required_n_R_L2_80": 8.0,
+      "required_n_R_L2_90": 17.0
+    },
+    {
+      "waveform": "racket",
+      "action_id": 5,
+      "action_label": "backhand drive",
+      "R_L2_m50": 0.94473794142648,
+      "required_n_R_L2_80": 12.0,
+      "required_n_R_L2_90": 27.0
+    },
+    {
+      "waveform": "racket",
+      "action_id": 6,
+      "action_label": "backhand push",
+      "R_L2_m50": 0.9783534691978412,
+      "required_n_R_L2_80": 5.0,
+      "required_n_R_L2_90": 10.0
+    },
+    {
+      "waveform": "body_configuration",
+      "action_id": 1,
+      "action_label": "forehand attack",
+      "R_L2_m50": 0.9886054102761933,
+      "required_n_R_L2_80": 3.0,
+      "required_n_R_L2_90": 6.0
+    },
+    {
+      "waveform": "body_configuration",
+      "action_id": 2,
+      "action_label": "forehand drive",
+      "R_L2_m50": 0.9880949302312143,
+      "required_n_R_L2_80": 3.0,
+      "required_n_R_L2_90": 6.0
+    },
+    {
+      "waveform": "body_configuration",
+      "action_id": 3,
+      "action_label": "forehand push",
+      "R_L2_m50": 0.9927211761454534,
+      "required_n_R_L2_80": 2.0,
+      "required_n_R_L2_90": 4.0
+    },
+    {
+      "waveform": "body_configuration",
+      "action_id": 4,
+      "action_label": "backhand attack",
+      "R_L2_m50": 0.9860539971441846,
+      "required_n_R_L2_80": 3.0,
+      "required_n_R_L2_90": 7.0
+    },
+    {
+      "waveform": "body_configuration",
+      "action_id": 5,
+      "action_label": "backhand drive",
+      "R_L2_m50": 0.9827343434917969,
+      "required_n_R_L2_80": 4.0,
+      "required_n_R_L2_90": 8.0
+    },
+    {
+      "waveform": "body_configuration",
+      "action_id": 6,
+      "action_label": "backhand push",
+      "R_L2_m50": 0.9923248742455245,
+      "required_n_R_L2_80": 2.0,
+      "required_n_R_L2_90": 4.0
+    }
+  ]
+}

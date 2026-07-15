@@ -1,0 +1,9 @@
+{
+  "backend": "Python/matplotlib",
+  "font_family": "Arial",
+  "figure_width_mm": 162.0,
+  "figures": 7,
+  "hard_checks_pass": true,
+  "text_boundary_violations_total": 0,
+  "manifest": "Figure_output_manifest.csv"
+}

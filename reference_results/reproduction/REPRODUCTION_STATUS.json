@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "completed_utc": "2026-07-15T04:55:09.589119+00:00",
+  "input": {
+    "archive": "TTMD6.rar",
+    "bytes": 341074031,
+    "md5": "1c9ce9cbf79dd35dd22f16a7199e2a8c",
+    "sha256": "93d1b52a470f14b9dc0ba0600959bff921be891a3da1b71e609bd328224b354d",
+    "python": "3.12.13 (main, Mar  3 2026, 15:35:03) [Clang 21.1.4 ]",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "dependencies": {
+      "numpy": "2.3.5",
+      "pandas": "2.2.3",
+      "scipy": "1.18.0",
+      "matplotlib": "3.11.0",
+      "PIL": "12.2.0"
+    },
+    "bsdtar": "/usr/bin/bsdtar"
+  },
+  "seed": 20260712,
+  "n_bootstrap_whole_athlete": 5000,
+  "n_balanced_resamples": 1000,
+  "public_record_note": "The local absolute archive path was normalized to TTMD6.rar for this public verification record; archive size and cryptographic digests are unchanged.",
+  "regression_checks": {
+    "archive_structure": "PASS",
+    "coordinate_structural_zero_audit": "PASS",
+    "primary_action_specific_R_L2_90": "PASS",
+    "hampel_sensitivity_R_L2_90": "PASS",
+    "fixed8_common_composition_R_L2_90": "PASS",
+    "reml_self_tests": "PASS",
+    "forbidden_stale_QC_WARNING": "ABSENT",
+    "required_tables_and_figures": "PASS",
+    "figure_dimensions_formats_and_text_bounds": "PASS"
+  }
+}

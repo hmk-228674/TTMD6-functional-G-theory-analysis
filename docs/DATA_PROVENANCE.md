@@ -34,6 +34,8 @@ Every item above is emitted in machine-readable audit tables during reproduction
 
 The later Figshare record at https://doi.org/10.6084/m9.figshare.31746358 has been reported with a byte count different from the archive analyzed here. A shared dataset title or concept DOI is not proof of byte identity. Users must verify the exact archive hash.
 
+The analyzed archive is identified by filename, byte count, MD5, and SHA-256. If an accessible source record supplies a byte-distinct archive, the workflow deliberately stops before extraction and does not treat the files as analytically interchangeable. This is an explicit provenance and version boundary: the repository verifies the identity of the input actually analyzed but does not claim that later TTMD6 distributions are byte-identical.
+
 ## Privacy and ethics boundary
 
 The repository contains no names, direct identifiers, raw coordinate files, or key linking athlete codes to personal characteristics. The original article reports an age range including minors. This repository does not infer or invent consent procedures that are absent from the public source record; manuscript-level ethics statements remain the responsibility of the submitting authors and their institution.

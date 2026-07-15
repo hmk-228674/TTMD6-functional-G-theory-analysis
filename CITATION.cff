@@ -3,11 +3,10 @@ message: "Please cite the associated article when available; meanwhile cite this
 title: "TTMD6 waveform relative-reliability analysis"
 type: software
 authors:
-  - family-names: "hmk-228674"
+  - family-names: "Han"
+    given-names: "Mingke"
 repository-code: "https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis"
 url: "https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis"
-version: 1.0.0
-date-released: 2026-07-15
 license: MIT
 abstract: >-
   Reproducible Python workflow for archive auditing, waveform derivation,

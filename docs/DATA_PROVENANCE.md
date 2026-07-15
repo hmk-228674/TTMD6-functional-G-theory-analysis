@@ -6,7 +6,18 @@ The analysis is a secondary analysis of the TTMD6 coordinate archive associated 
 
 > Table tennis motion recognition based on the bat trajectory using varying-length-input convolution neural networks. *Scientific Reports* (2024). https://doi.org/10.1038/s41598-024-54150-5
 
-The raw archive is third-party material and is not redistributed here. The accepted input is fixed by byte count and two hashes in `reproduce_all.py`; a mismatch stops the workflow before extraction.
+The raw archive is third-party material and is not redistributed here. The exact analyzed archive is available from the publisher-hosted [Scientific Reports Supplementary Information](https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-024-54150-5/MediaObjects/41598_2024_54150_MOESM1_ESM.rar). The accepted input is fixed by byte count and two hashes in `reproduce_all.py`; a mismatch stops the workflow before extraction.
+
+## Exact publisher-file verification
+
+On 2026-07-15, the Springer Nature supplementary file was downloaded in full and compared with the local analysis input. The two files were identical under all four checks:
+
+- byte count: `341074031`;
+- MD5: `1c9ce9cbf79dd35dd22f16a7199e2a8c`;
+- SHA-256: `93d1b52a470f14b9dc0ba0600959bff921be891a3da1b71e609bd328224b354d`;
+- direct byte-for-byte comparison: no differences.
+
+The publisher download name (`41598_2024_54150_MOESM1_ESM.rar`) and the local analysis name (`TTMD6.rar`) refer to the same byte sequence. The archive is linked here rather than copied into the repository, so readers can obtain it from the source publication while independently checking the exact analyzed identity.
 
 ## Reported cohort versus archive structure
 
@@ -32,9 +43,9 @@ Every item above is emitted in machine-readable audit tables during reproduction
 
 ## Data-record caveat
 
-The later Figshare record at https://doi.org/10.6084/m9.figshare.31746358 has been reported with a byte count different from the archive analyzed here. A shared dataset title or concept DOI is not proof of byte identity. Users must verify the exact archive hash.
+The later Figshare record at https://doi.org/10.6084/m9.figshare.31746358 has a byte count different from the verified publisher archive and was not used for the archived results. A shared dataset title or concept DOI is not proof of byte identity. Users must verify the exact archive hash.
 
-The analyzed archive is identified by filename, byte count, MD5, and SHA-256. If an accessible source record supplies a byte-distinct archive, the workflow deliberately stops before extraction and does not treat the files as analytically interchangeable. This is an explicit provenance and version boundary: the repository verifies the identity of the input actually analyzed but does not claim that later TTMD6 distributions are byte-identical.
+The analyzed archive is identified by byte count, MD5, and SHA-256; the expected local filename is documented for clarity but does not override content identity. If another source record supplies a byte-distinct archive, the workflow deliberately stops before extraction and does not treat the files as analytically interchangeable. This is an explicit provenance and version boundary: the repository verifies the identity of the input actually analyzed but does not claim that later TTMD6 distributions are byte-identical.
 
 ## Privacy and ethics boundary
 

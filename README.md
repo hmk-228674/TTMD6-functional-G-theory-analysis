@@ -36,7 +36,7 @@ The primary publication reports 30 participants and 9,000 TTMD6 strokes. The arc
 
 Additional disclosed archive issues include 50 duplicated 400-row blocks for each waveform family, eight exact paired-record matches spanning the primary and quarantined blocks, 1,180 primary trials with nominal lengths above 200 frames, and structural zero triplets in 190 body trials. These conditions are audited explicitly and examined through sensitivity analyses; they are not silently discarded.
 
-The third-party coordinate archive is **not redistributed** in this repository. Obtain it lawfully from the [primary Scientific Reports article](https://doi.org/10.1038/s41598-024-54150-5) or its linked data record. The pipeline accepts only this exact input identity:
+The third-party coordinate archive is **not redistributed** in this repository. The exact archive analyzed here is publicly downloadable from the publisher-hosted [Scientific Reports Supplementary Information](https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-024-54150-5/MediaObjects/41598_2024_54150_MOESM1_ESM.rar) associated with the [primary article](https://doi.org/10.1038/s41598-024-54150-5). The pipeline accepts only this exact input identity:
 
 | Property | Required value |
 |---|---|
@@ -45,9 +45,9 @@ The third-party coordinate archive is **not redistributed** in this repository. 
 | MD5 | `1c9ce9cbf79dd35dd22f16a7199e2a8c` |
 | SHA-256 | `93d1b52a470f14b9dc0ba0600959bff921be891a3da1b71e609bd328224b354d` |
 
-The exact analyzed archive is identified here by filename, byte count, MD5, and SHA-256. If the currently accessible source record supplies a byte-distinct archive, this workflow intentionally refuses to treat that archive as analytically interchangeable. The repository therefore supports exact verification of the analyzed input identity but does not assert that every later TTMD6 distribution is byte-identical to that input.
+On 2026-07-15, the publisher-hosted file was downloaded in full and compared with the local analysis input. Its byte count, MD5, and SHA-256 matched the values above, and a byte-for-byte comparison returned no differences. This verifies that the official Springer Nature supplementary file is the exact archive analyzed here, irrespective of the download filename.
 
-The current Figshare record (concept DOI [10.6084/m9.figshare.31746358](https://doi.org/10.6084/m9.figshare.31746358)) has been reported with a different byte count. Do not assume byte identity across records; verify the hash before analysis. The program stops before extraction if the input identity differs.
+A later Figshare record (concept DOI [10.6084/m9.figshare.31746358](https://doi.org/10.6084/m9.figshare.31746358)) has a different byte count and was not used for the archived results. Do not substitute a similarly named or later-version file without verifying the exact identity above. The program stops before extraction if the byte count or either digest differs.
 
 ## Run the analysis
 

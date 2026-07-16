@@ -1,0 +1,18 @@
+{
+  "status": "complete",
+  "seed": 20260714,
+  "n_cluster_bootstrap": 5000,
+  "participant_code_crosswalk_available": false,
+  "cohort_scenarios": [
+    "codes_1_30_primary",
+    "codes_11_40_alternative_window",
+    "codes_1_40_all_archive_codes",
+    "codes_1_40_exact_pair_deduplicated"
+  ],
+  "exact_pair_records_removed": 8,
+  "backhand_drive_racket_n90": {
+    "L2_trace_ratio": 27,
+    "phase_mean_pointwise_ratio": 17
+  },
+  "inference_boundary": "Archive-code scenarios do not establish the number or identity of independent participants."
+}

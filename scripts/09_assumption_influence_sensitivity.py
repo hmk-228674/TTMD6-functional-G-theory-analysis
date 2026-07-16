@@ -328,21 +328,36 @@ def main() -> None:
         scenarios = [("fixed", 0.0), ("fixed", 0.10), ("fixed", 0.20), ("fixed", 0.30), ("archive_order_lag1", empirical)]
         for scenario, phi in scenarios:
             n90 = required_n_ar1(B, W, phi)
+            if scenario == "archive_order_lag1":
+                scenario_class = "archive_order_proxy_not_fitted_chronology"
+                residual_assumption = "archive_order_lag1_proxy"
+            elif phi == 0.0:
+                scenario_class = "residual_independence_baseline"
+                residual_assumption = "independent_residuals"
+            else:
+                scenario_class = "positive_correlation_working_scenario"
+                residual_assumption = f"AR1_positive_phi_{phi:.2f}"
             ar_rows.append(
                 {
                     "waveform": row.waveform,
                     "action_id": int(row.action_id),
                     "action_code": ACTION_CODE[int(row.action_id)],
                     "scenario": scenario,
+                    "scenario_class": scenario_class,
+                    "residual_assumption": residual_assumption,
                     "AR1_phi": phi,
                     "B": B,
                     "W": W,
                     "W_over_B": W / B,
                     "independence_continuous_n90": 9.0 * W / B,
-                    "minimum_integer_n90": n90,
+                    "required_n_R_L2_90": n90,
                     "design_effect_at_n90": ar1_design_effect(int(n90), phi) if np.isfinite(n90) else math.nan,
                     "reliability_at_50": ar1_reliability(B, W, 50, phi),
                     "chronology_verified": False if scenario == "archive_order_lag1" else np.nan,
+                    "variance_component_status": "primary_independence_B_and_W_held_fixed_not_refitted_under_correlation",
+                    "scenario_scope": "condition_specific_working_scenario_not_field_prescription_or_upper_bound",
+                    "universal_field_prescription": False,
+                    "empirical_upper_bound": False,
                 }
             )
     ar_df = pd.DataFrame(ar_rows)

@@ -58,6 +58,20 @@ def check() -> list[str]:
                 if token in text:
                     failures.append(f"Forbidden token {token!r} in {rel}")
 
+    legacy_pointwise_fields = (
+        "required_m_pointwise_" + "G80",
+        "required_m_pointwise_" + "G90",
+    )
+    for path in files:
+        if path.resolve() == Path(__file__).resolve():
+            continue
+        if path.suffix.lower() not in {".py", ".csv", ".json"}:
+            continue
+        text = path.read_text(encoding="utf-8-sig", errors="strict")
+        for field in legacy_pointwise_fields:
+            if field in text:
+                failures.append(f"Legacy pointwise-threshold field {field!r} in {path.relative_to(ROOT)}")
+
     status_path = ROOT / "reference_results/reproduction/REPRODUCTION_STATUS.json"
     figure_qa_path = ROOT / "figure_source_data/Figure_QA.json"
     if not status_path.is_file() or json.loads(status_path.read_text())["status"] != "PASS":
@@ -74,7 +88,10 @@ def check() -> list[str]:
         failures.append("Primary integrated results are missing")
     else:
         table = pd.read_csv(primary)
-        required = {"waveform", "action_id", "action_label", "R_L2_m50", "required_n_R_L2_90"}
+        required = {
+            "waveform", "action_id", "action_label", "R_L2_m50",
+            "required_n_R_L2_90", "required_n_mean_pointwise_R_90",
+        }
         missing = required.difference(table.columns)
         if missing:
             failures.append(f"Primary table is missing columns: {sorted(missing)}")
@@ -83,6 +100,20 @@ def check() -> list[str]:
             "backhand attack", "backhand drive", "backhand push",
         }:
             failures.append("Primary table action labels are not the canonical six English labels")
+
+    cohort = ROOT / "reference_results/cohort_estimand/Table_S_CohortAndDedupSensitivity.csv"
+    if not cohort.is_file():
+        failures.append("Cohort/estimand sensitivity results are missing")
+    else:
+        table = pd.read_csv(cohort)
+        bd = table[
+            (table["scenario"] == "codes_1_30_primary")
+            & (table["waveform"] == "racket")
+            & (table["action_id"] == 5)
+        ]
+        if len(bd) != 1 or int(bd.iloc[0]["required_n_R_L2_90"]) != 27 \
+                or int(bd.iloc[0]["required_n_mean_pointwise_R_90"]) != 17:
+            failures.append("Backhand-drive trace/phase-mean threshold regression failed")
 
     figure_bases = {path.stem for path in (ROOT / "figures").glob("*.png")}
     if len(figure_bases) != 7:
@@ -102,6 +133,8 @@ def check() -> list[str]:
     has_release_date = any(line.startswith("date-released:") for line in citation_lines)
     if has_version != has_release_date:
         failures.append("CITATION.cff version and date-released must be present or absent together")
+    if 'version: "1.0.1"' not in citation:
+        failures.append("CITATION.cff is not prepared for v1.0.1")
 
     license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
     if "Copyright (c) 2026 Mingke Han" not in license_text:

@@ -47,6 +47,19 @@ The later Figshare record at https://doi.org/10.6084/m9.figshare.31746358 has a 
 
 The analyzed archive is identified by byte count, MD5, and SHA-256; the expected local filename is documented for clarity but does not override content identity. If another source record supplies a byte-distinct archive, the workflow deliberately stops before extraction and does not treat the files as analytically interchangeable. This is an explicit provenance and version boundary: the repository verifies the identity of the input actually analyzed but does not claim that later TTMD6 distributions are byte-identical.
 
+## Software and derived-output archive
+
+The frozen analysis release is GitHub tag `v1.0.0` at commit `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022`. Zenodo archived that release as [version DOI 10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967); [concept DOI 10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966) resolves to the latest software version and should not replace the version DOI when exact reproduction is required.
+
+The Zenodo release file `hmk-228674/TTMD6-functional-G-theory-analysis-v1.0.0.zip` was downloaded and validated after publication:
+
+- byte count: `9201472`;
+- MD5: `81e2dbd99d85ce45d18dbb8d60aa6438` (matching the checksum displayed by Zenodo);
+- SHA-256: `6da90f49aaebe52662f94f14b55c7e2b5126f125f3ab3b6fd25beb53c96c2230`;
+- ZIP integrity test: passed with no errors.
+
+This software archive contains code, documentation, figures, figure source data, and selected derived results. It does not contain the third-party TTMD6 raw coordinate archive. Raw-input identity and software-release identity are deliberately documented as separate provenance layers.
+
 ## Privacy and ethics boundary
 
 The repository contains no names, direct identifiers, raw coordinate files, or key linking athlete codes to personal characteristics. The original article reports an age range including minors. This repository does not infer or invent consent procedures that are absent from the public source record; manuscript-level ethics statements remain the responsibility of the submitting authors and their institution.

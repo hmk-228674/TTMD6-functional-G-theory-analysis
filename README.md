@@ -1,6 +1,7 @@
 # TTMD6 waveform relative-reliability analysis
 
 [![CI](https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis/actions/workflows/ci.yml/badge.svg)](https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21382966.svg)](https://doi.org/10.5281/zenodo.21382966)
 
 This repository contains the complete analysis code, selected reference outputs, figure source data, and publication-ready figures for a secondary analysis of the TTMD6 table-tennis motion-capture archive.
 
@@ -22,7 +23,7 @@ For the detailed Chinese instructions, see [docs/README_zh-CN.md](docs/README_zh
 - REML numerical self-tests: 13/13 passed.
 - Figure QA: 7/7 passed; fixed 162 mm width, 600 dpi LZW TIFF, editable SVG text, and zero detected text-boundary violations.
 - Random seed: `20260712` (assumption diagnostics use the separately recorded seed `20260713`).
-- Release status: release candidate; no `v1.0.0` GitHub release or archival DOI has yet been issued.
+- Release status: `v1.0.0` is published from commit `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022`; the version-specific DOI is [10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967), and the all-versions DOI is [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966).
 
 The machine-readable record is [reference_results/reproduction/REPRODUCTION_STATUS.json](reference_results/reproduction/REPRODUCTION_STATUS.json). The archived reference outputs are checks against a known successful run; the pipeline does not read them when reproducing the analysis.
 
@@ -104,4 +105,8 @@ Source code in this repository is licensed under the [MIT License](LICENSE). Aut
 
 ## Citation
 
-Before a formal software release is issued, cite this repository by title, author, commit, URL, and access date. `CITATION.cff` intentionally omits `version` and `date-released` until the corresponding GitHub release exists; those fields must be added using the actual release tag and date before archival DOI registration.
+For exact reproduction of the manuscript analysis, cite the frozen `v1.0.0` record:
+
+> Han, M. (2026). *TTMD6 waveform relative-reliability analysis* (Version v1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21382967
+
+Use [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966) only when citing the evolving software record across all versions. The version DOI above resolves permanently to the exact archived release used for the manuscript; `CITATION.cff` contains the corresponding machine-readable metadata.

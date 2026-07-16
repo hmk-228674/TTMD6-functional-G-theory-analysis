@@ -8,7 +8,14 @@ authors:
 repository-code: "https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis"
 url: "https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis"
 version: "1.0.0"
-date-released: "2026-07-16"
+date-released: "2026-07-15"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21382967"
+    description: "Version-specific DOI for v1.0.0"
+  - type: doi
+    value: "10.5281/zenodo.21382966"
+    description: "Concept DOI resolving to the latest software version"
 license: MIT
 abstract: >-
   Reproducible Python workflow for archive auditing, waveform derivation,

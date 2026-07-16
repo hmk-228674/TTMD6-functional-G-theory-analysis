@@ -4,6 +4,10 @@
 
 该链条不读取既往结果、旧 README、旧表格或 `QC_WARNING.txt`。所有输出都由当前目录 `scripts/` 中的定版脚本重新计算；结束前还会执行数值回归检查，并主动拒绝任何混入的旧 `QC_WARNING.txt`。
 
+## 永久归档与引用
+
+论文分析对应的冻结版本为 GitHub `v1.0.0`，标签提交为 `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022`。精确复现时应引用 Zenodo 版本 DOI [10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967)；跨版本引用可使用长期 DOI [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966)，该 DOI 始终解析到最新版本。Zenodo 归档包大小为 `9201472` bytes，MD5 为 `81e2dbd99d85ce45d18dbb8d60aa6438`，SHA-256 为 `6da90f49aaebe52662f94f14b55c7e2b5126f125f3ab3b6fd25beb53c96c2230`，ZIP 完整性检查通过。该归档不含第三方 TTMD6 原始坐标压缩包。
+
 ## 1. 输入身份
 
 仅接受与本研究使用的 Scientific Reports 2024 官方补充档案逐字节一致的文件：

@@ -17,13 +17,13 @@ For the detailed Chinese instructions, see [docs/README_zh-CN.md](docs/README_zh
 
 ## Reproducibility status
 
-- Clean end-to-end run: **PASS** on 2026-07-15 (UTC).
+- Clean end-to-end run for the original `v1.0.0` release: **PASS** on 2026-07-15 (UTC). The `v1.0.1` cold-run record is regenerated before publication and stored in the same machine-readable status path.
 - Whole-athlete bootstrap: 5,000 replicates.
 - Within-cell balanced resampling: 1,000 replicates.
 - REML numerical self-tests: 13/13 passed.
 - Figure QA: 7/7 passed; fixed 162 mm width, 600 dpi LZW TIFF, editable SVG text, and zero detected text-boundary violations.
 - Random seed: `20260712` (assumption diagnostics use the separately recorded seed `20260713`).
-- Release status: `v1.0.0` is published from commit `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022`; the version-specific DOI is [10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967), and the all-versions DOI is [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966).
+- Release lineage: `v1.0.0` remains immutable at commit `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022` with version DOI [10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967). The revised manuscript analysis is `v1.0.1` with version DOI [10.5281/zenodo.21400718](https://doi.org/10.5281/zenodo.21400718); it receives its own immutable tag and commit. The all-versions DOI remains [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966).
 
 The machine-readable record is [reference_results/reproduction/REPRODUCTION_STATUS.json](reference_results/reproduction/REPRODUCTION_STATUS.json). The archived reference outputs are checks against a known successful run; the pipeline does not read them when reproducing the analysis.
 
@@ -36,6 +36,8 @@ The primary publication reports 30 participants and 9,000 TTMD6 strokes. The arc
 - this operational rule does **not** claim that codes 1–30 have been author-confirmed as a one-to-one mapping to the 30 reported participants.
 
 Additional disclosed archive issues include 50 duplicated 400-row blocks for each waveform family, eight exact paired-record matches spanning the primary and quarantined blocks, 1,180 primary trials with nominal lengths above 200 frames, and structural zero triplets in 190 body trials. These conditions are audited explicitly and examined through sensitivity analyses; they are not silently discarded.
+
+Because no participant-code crosswalk is public, `v1.0.1` reports codes 11–40, all codes 1–40, and exact-pair-deduplicated all-code scenarios alongside the primary block. Across all 12 racket/body action conditions, the alternative 30-code window changes the $L^2$-trace 0.90 threshold by 0–4 trials. Removing the eight cross-block exact duplicate pairs does not change any all-code integer threshold. These checks reduce sensitivity to the operational block choice but do not establish participant identity or independence for all 40 codes.
 
 The third-party coordinate archive is **not redistributed** in this repository. The exact archive analyzed here is publicly downloadable from the publisher-hosted [Scientific Reports Supplementary Information](https://static-content.springer.com/esm/art%3A10.1038%2Fs41598-024-54150-5/MediaObjects/41598_2024_54150_MOESM1_ESM.rar) associated with the [primary article](https://doi.org/10.1038/s41598-024-54150-5). The pipeline accepts only this exact input identity:
 
@@ -90,13 +92,17 @@ Changing `--n-bootstrap` or `--n-balanced-resamples` is intended only for develo
 | `figures/` | PNG, PDF, editable SVG, and 600 dpi LZW TIFF exports |
 | `docs/` | Methods, provenance, output dictionary, and Chinese reproduction guide |
 
+The `reference_results/cohort_estimand/` directory contains the code-boundary, exact-deduplication, 14-label mapping and functional-aggregation checks introduced in `v1.0.1`.
+
 ## Inferential boundaries
 
 - The independent unit for population-level uncertainty is the athlete code, not the individual trial.
 - The six archive labels are treated as a fixed finite set, not as a random sample of all table-tennis techniques.
 - The waveform is displacement magnitude per adjacent frame; it is not physical speed because no frame interval is applied.
-- The body representation is the mean displacement magnitude across available joints; it is not centre-of-mass motion or a coordination metric.
+- The body representation is the equal-weight mean displacement magnitude across available published anatomical labels; it is not centre-of-mass motion or a coordination metric. The 14-label-to-column map and its evidence boundary are documented in [docs/JOINT_AND_LABEL_MAPPING.md](docs/JOINT_AND_LABEL_MAPPING.md).
 - Archive rank is only an ordering proxy and is not asserted to be verified acquisition time.
+- The primary residual-independence estimates and positive-correlation AR(1) working scenarios are separate conditional analyses. Values such as 6–27 or 49 trials are not universal field prescriptions or empirical upper bounds.
+- The $L^2$ trace ratio and phase-mean pointwise ratio are different functional summaries. For backhand-drive racket displacement, their 0.90 thresholds are 27 and 17 trials, respectively.
 - Results describe within-session relative distinguishability for this archive and do not establish cross-day reliability, absolute agreement, responsiveness, or classification performance.
 
 ## License
@@ -105,8 +111,8 @@ Source code in this repository is licensed under the [MIT License](LICENSE). Aut
 
 ## Citation
 
-For exact reproduction of the manuscript analysis, cite the frozen `v1.0.0` record:
+For exact reproduction of the revised manuscript analysis, cite the frozen `v1.0.1` record:
 
-> Han, M. (2026). *TTMD6 waveform relative-reliability analysis* (Version v1.0.0) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21382967
+> Han, M. (2026). *TTMD6 waveform relative-reliability analysis* (Version v1.0.1) [Computer software]. Zenodo. https://doi.org/10.5281/zenodo.21400718
 
-Use [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966) only when citing the evolving software record across all versions. The version DOI above resolves permanently to the exact archived release used for the manuscript; `CITATION.cff` contains the corresponding machine-readable metadata.
+Use [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966) only when citing the evolving software record across all versions. The historical `v1.0.0` version DOI remains [10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967), but that release does not contain the four scientific clarifications added in `v1.0.1`.

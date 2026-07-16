@@ -1,0 +1,28 @@
+{
+  "title": "TTMD6 waveform relative-reliability analysis",
+  "description": "Reproducible Python workflow for archive auditing, waveform derivation, action-specific constrained REML, whole-athlete cluster bootstrap, participant-code and exact-deduplication robustness, functional-aggregation sensitivity, dependence scenarios, and publication-figure generation for a secondary analysis of the TTMD6 motion-capture archive.",
+  "upload_type": "software",
+  "publication_date": "2026-07-17",
+  "version": "v1.0.1",
+  "license": "MIT",
+  "creators": [
+    {
+      "name": "Han, Mingke"
+    }
+  ],
+  "keywords": [
+    "TTMD6",
+    "table tennis",
+    "motion capture",
+    "functional data analysis",
+    "relative reliability",
+    "reproducible research"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis/tree/v1.0.1",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ]
+}

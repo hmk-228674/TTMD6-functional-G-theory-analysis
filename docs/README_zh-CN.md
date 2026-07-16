@@ -1,12 +1,12 @@
 # TTMD6 位移幅值波形分析：单一复现链
 
-本目录是本研究唯一的代码入口。它从研究者自行取得的 `TTMD6.rar` 开始，完成档案身份校验、解压、坐标质量控制、波形派生、固定六标签有限集合分解、6 类动作特异节点级约束 REML、5000 次运动员整簇 Bootstrap、排除名义长度超过 200 帧的不平衡 REML、1000 次单元内平衡重抽样、结构性缺失与高跳变敏感性、固定关节点组成敏感性、档案顺序相关诊断、AR(1)工作情景、峰值配准、逐一剔除运动员、Bootstrap区间诊断、逐节点边际区间和全部投稿图重建。
+本目录是本研究唯一的代码入口。它从研究者自行取得的 `TTMD6.rar` 开始，完成档案身份校验、解压、坐标质量控制、波形派生、固定六标签有限集合分解、6 类动作特异节点级约束 REML、5000 次运动员整簇 Bootstrap、排除名义长度超过 200 帧的不平衡 REML、1000 次单元内平衡重抽样、结构性缺失与高跳变敏感性、固定关节点组成敏感性、编码窗口与精确去重敏感性、两种功能汇总对照、档案顺序相关诊断、AR(1)工作情景、峰值配准、逐一剔除运动员、Bootstrap区间诊断、逐节点边际区间和全部投稿图重建。
 
 该链条不读取既往结果、旧 README、旧表格或 `QC_WARNING.txt`。所有输出都由当前目录 `scripts/` 中的定版脚本重新计算；结束前还会执行数值回归检查，并主动拒绝任何混入的旧 `QC_WARNING.txt`。
 
 ## 永久归档与引用
 
-论文分析对应的冻结版本为 GitHub `v1.0.0`，标签提交为 `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022`。精确复现时应引用 Zenodo 版本 DOI [10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967)；跨版本引用可使用长期 DOI [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966)，该 DOI 始终解析到最新版本。Zenodo 归档包大小为 `9201472` bytes，MD5 为 `81e2dbd99d85ce45d18dbb8d60aa6438`，SHA-256 为 `6da90f49aaebe52662f94f14b55c7e2b5126f125f3ab3b6fd25beb53c96c2230`，ZIP 完整性检查通过。该归档不含第三方 TTMD6 原始坐标压缩包。
+当前修订稿对应 GitHub `v1.0.1`，版本 DOI 为 [10.5281/zenodo.21400718](https://doi.org/10.5281/zenodo.21400718)；其标签提交和归档双哈希在完成冷复现与正式发布后锁定。旧 `v1.0.0` 仍是不可变历史版本（提交 `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022`；版本 DOI [10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967)），但不包含本次四项科学澄清，不能冒充当前稿件版本。跨版本引用可使用长期 DOI [10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966)，该 DOI 始终解析到最新版本。各版本归档均不含第三方 TTMD6 原始坐标压缩包。
 
 ## 1. 输入身份
 
@@ -90,6 +90,9 @@ python reproduce_all.py \
 7. 不确定性以运动员为整簇进行 5000 次 Bootstrap；不会把 9000 条试次误当成 9000 个跨运动员推断的独立单位。
 8. 敏感性分析包括：名义长度 `>200` 帧排除、不平衡 REML、单元内平衡重抽样、11 点 Hampel 型局部高值处理、含 8 个始终可见关节点的固定组成，以及排除剩余结构性缺失试次的 13 关节点固定组成。这里的局部高值规则使用研究自定义的一侧阈值与插值步骤，不是标准 Hampel 滤波器。
 9. 档案数字顺序只作为顺序代理，不能等同经核验的采集时间。代码同时报告档案顺序 `L²` 迹相关、`phi=0/0.10/0.20/0.30` 的 AR(1)工作情景、同一球拍峰值变换作用于成对球拍—人体波形的配准敏感性、逐一剔除运动员、质量规则影响、百分位/基本/BCa区间与分位点Monte Carlo稳定性。
+10. 编码1～30不是经原作者确认的身份映射；并列报告编码11～40、全部1～40和全部编码精确去重情景。40个档案编码不得写成40名已确认参与者。
+11. `L²`迹比和逐节点相对信度的相位平均是两个不同功能汇总。BD球拍达到0.90的整数阈值分别为27和17次，后者不是前者的“校正值”。
+12. 残差相关可忽略的主分析与正相关AR(1)工作情景分层报告。6～27次不是通用现场处方，BD在`phi=0.30`下的49次也不是经验上界或安全余量。
 
 这里的“速度”文件名沿用早期缓存命名，实际量是未除以帧间隔的坐标位移幅值。结果不能解释为物理速度、击球效果、分类性能或跨批次追踪有效性。
 
@@ -107,6 +110,7 @@ python reproduce_all.py \
 - `work/reanalysis_structural/global/`：跨动作方差分解及整簇 Bootstrap；
 - `work/reanalysis_structural/global/tables/Table_S_GlobalPointwiseBootstrapBands.csv`：固定六标签分解的5000次运动员整簇逐节点边际区间；这些不是同时置信带，不能用于局部显著性判定；
 - `work/reanalysis_structural/assumption_influence/`：档案顺序审计与相关、AR(1)情景、峰值配准、逐一剔除运动员、运动员贡献、BD质量标记分布、Bootstrap诊断和成对动作描述性差值；
+- `work/reanalysis_structural/cohort_estimand/`：编码窗口、全部编码、精确去重、5000次编码整簇Bootstrap、14标签映射和功能汇总对照；
 - `work/reanalysis_hampel/`：孤立高跳变处理敏感性；
 - `work/reanalysis_fixed8/`：8 个始终可见关节点的固定组成敏感性；
 - `work/reanalysis_structural/Table_S_CompleteCaseZeroMarkerSensitivity.csv`：整试次完全案例敏感性；
@@ -114,7 +118,7 @@ python reproduce_all.py \
 - `work/reanalysis_structural/Table_S_ContinuousThresholdBootstrap5000_*.csv`：连续和向上取整试次数阈值；
 - `figures_final/`：4张主图与3张补充图的 PNG、600 dpi LZW TIFF、PDF、可编辑文本SVG、每图源数据CSV和自动QA清单。
 
-公开版本已统一机器字段：积分指标使用 `R_L2_m*`，阈值使用 `required_n_R_L2_*`，逐节点展示量使用 `pointwise_relative_reliability_m*`。概化理论仅提供重复测量误差按 `W/n` 缩减的设计逻辑；本指标不称为标准G系数。
+公开版本已统一机器字段：积分指标使用 `R_L2_m*`，迹比阈值使用 `required_n_R_L2_*`，相位平均逐节点阈值使用 `required_n_mean_pointwise_R_*`，逐节点展示量使用 `pointwise_relative_reliability_m*`。v1.0.1已删除历史字段`required_m_pointwise_G80/90`，避免把该统计量误称G系数或混用设计变量。概化理论仅提供重复测量误差按 `W/n` 缩减的设计逻辑；本指标不称为标准G系数。
 
 ## 6. 自动成功标准
 
@@ -144,6 +148,7 @@ python reproduce_all.py \
 - `scripts/08_continuous_threshold_bootstrap.py`：连续阈值与整数试次数 Bootstrap 汇总；
 - `scripts/09_assumption_influence_sensitivity.py`：档案顺序/AR(1)、峰值配准、LOPO、质量规则影响与Bootstrap区间诊断；
 - `scripts/10_global_pointwise_bootstrap.py`：固定六标签分解的运动员整簇逐节点边际区间；
+- `scripts/11_cohort_estimand_sensitivity.py`：编码窗口、全部编码、精确去重、14标签映射和两种功能汇总敏感性；
 - `scripts/06_make_publication_figures.py`：4张主图、3张补充图、逐图源数据与图形QA。
 
 本发布链的目标是让所有定量陈述可追溯、可重跑、可失败；它不把单次成功运行等同于对数据采集质量或外部效度的额外保证。

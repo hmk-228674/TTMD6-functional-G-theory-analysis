@@ -314,7 +314,7 @@ def component_summary(
     for target in TARGETS:
         suffix = str(int(target * 100))
         out[f"required_n_R_L2_{suffix}"] = float(required_trials(b_i, w_i, target))
-        out[f"required_m_pointwise_G{suffix}"] = required_m_pointwise(
+        out[f"required_n_mean_pointwise_R_{suffix}"] = required_m_pointwise(
             comp.between, comp.within, weights, target
         )
     return out
@@ -649,7 +649,7 @@ def bootstrap_draw_frame(
         rows[f"mean_pointwise_reliability_m{m}"] = integrate(reliability_curve(b, w, m), weights)
     for target in TARGETS:
         rows[f"required_n_R_L2_{int(target * 100)}"] = required_trials(b_i, w_i, target)
-        rows[f"required_m_pointwise_G{int(target * 100)}"] = required_m_pointwise_batch(
+        rows[f"required_n_mean_pointwise_R_{int(target * 100)}"] = required_m_pointwise_batch(
             b, w, weights, target
         )
     return pd.DataFrame(rows)
@@ -681,7 +681,7 @@ def resample_draw_frame(
         rows[f"mean_pointwise_reliability_m{m}"] = integrate(reliability_curve(comp.between, comp.within, m), weights)
     for target in TARGETS:
         rows[f"required_n_R_L2_{int(target * 100)}"] = required_trials(b_i, w_i, target)
-        rows[f"required_m_pointwise_G{int(target * 100)}"] = required_m_pointwise_batch(
+        rows[f"required_n_mean_pointwise_R_{int(target * 100)}"] = required_m_pointwise_batch(
             comp.between, comp.within, weights, target
         )
     return pd.DataFrame(rows)

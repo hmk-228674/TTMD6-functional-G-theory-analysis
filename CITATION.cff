@@ -7,12 +7,12 @@ authors:
     given-names: "Mingke"
 repository-code: "https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis"
 url: "https://github.com/hmk-228674/TTMD6-functional-G-theory-analysis"
-version: "1.0.0"
-date-released: "2026-07-15"
+version: "1.0.1"
+date-released: "2026-07-17"
 identifiers:
   - type: doi
-    value: "10.5281/zenodo.21382967"
-    description: "Version-specific DOI for v1.0.0"
+    value: "10.5281/zenodo.21400718"
+    description: "Version-specific DOI for v1.0.1"
   - type: doi
     value: "10.5281/zenodo.21382966"
     description: "Concept DOI resolving to the latest software version"
@@ -20,5 +20,6 @@ license: MIT
 abstract: >-
   Reproducible Python workflow for archive auditing, waveform derivation,
   action-specific constrained REML, whole-athlete cluster bootstrap,
-  sensitivity analysis, and publication-figure generation for a secondary
-  analysis of the TTMD6 motion-capture archive.
+  sensitivity analysis, participant-code and exact-deduplication robustness,
+  alternative functional aggregation, and publication-figure generation for
+  a secondary analysis of the TTMD6 motion-capture archive.

@@ -625,7 +625,7 @@ def figure4(root: Path, out: Path, qa: list[dict]) -> None:
     for i, (waveform, prefix) in enumerate([("racket", "R"), ("body_configuration", "H")]):
         for j, code in enumerate(ACTION_CODES):
             d = fixed[(fixed.waveform == waveform) & (fixed.action_code == code)].sort_values("AR1_phi")
-            matrix[i * 6 + j] = d.minimum_integer_n90.to_numpy()
+            matrix[i * 6 + j] = d.required_n_R_L2_90.to_numpy()
     cmap = LinearSegmentedColormap.from_list("trial_counts", ["#F3F8FC", "#86B6D8", "#D55E00"])
     image = ax.imshow(matrix, aspect="auto", cmap=cmap, vmin=4, vmax=49)
     for row in range(matrix.shape[0]):

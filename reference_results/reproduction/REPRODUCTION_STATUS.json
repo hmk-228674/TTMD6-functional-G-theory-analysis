@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "completed_utc": "2026-07-15T04:55:09.589119+00:00",
+  "completed_utc": "2026-07-16T18:58:10.486106+00:00",
   "input": {
     "archive": "TTMD6.rar",
     "bytes": 341074031,
@@ -27,6 +27,8 @@
     "primary_action_specific_R_L2_90": "PASS",
     "hampel_sensitivity_R_L2_90": "PASS",
     "fixed8_common_composition_R_L2_90": "PASS",
+    "cohort_boundary_and_exact_deduplication_sensitivity": "PASS",
+    "trace_vs_phase_mean_pointwise_thresholds": "PASS",
     "reml_self_tests": "PASS",
     "forbidden_stale_QC_WARNING": "ABSENT",
     "required_tables_and_figures": "PASS",

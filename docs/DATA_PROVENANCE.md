@@ -31,6 +31,16 @@ The analysis therefore uses a predeclared deterministic operational rule:
 
 This unresolved provenance is an inferential limitation, not merely a file-format detail.
 
+## Participant-code robustness scenarios
+
+Because the public materials do not contain a participant-code crosswalk, the repository does not try to infer identities from numeric order. In addition to the operational codes 1–30 primary block, `v1.0.1` runs three explicitly descriptive scenarios:
+
+1. the same-width codes 11–40 window;
+2. all complete archive codes 1–40;
+3. all codes after removing the codes 31–40-side record from each of the eight exact paired-record duplicate groups.
+
+The last scenario uses unbalanced profile REML after the eight record removals. Across the 12 racket/body action conditions, the alternative 30-code window changes the primary $L^2$-trace 0.90 integer threshold by 0–4 trials. The all-code and exact-pair-deduplicated scenarios have identical integer thresholds under both the trace and phase-mean pointwise summaries. These results show that the eight exact duplicates do not drive the reported integer conclusions; they do not prove that all 40 codes are distinct participants or that codes 1–30 are the 30 recruited participants. Machine-readable outputs are in `reference_results/cohort_estimand/`.
+
 ## Archive audit findings
 
 - 50 racket and 50 body files contain exact duplicated 200-row halves within 400-row matrices; the duplicated half is deterministically collapsed.
@@ -49,7 +59,7 @@ The analyzed archive is identified by byte count, MD5, and SHA-256; the expected
 
 ## Software and derived-output archive
 
-The frozen analysis release is GitHub tag `v1.0.0` at commit `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022`. Zenodo archived that release as [version DOI 10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967); [concept DOI 10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966) resolves to the latest software version and should not replace the version DOI when exact reproduction is required.
+The historical analysis release is GitHub tag `v1.0.0` at commit `f5c0562d8b0abfe79cbd20971efc6dc2ea6fd022`. Zenodo archived that release as [version DOI 10.5281/zenodo.21382967](https://doi.org/10.5281/zenodo.21382967). It is not overwritten or retagged. The revised manuscript analysis is released separately as `v1.0.1` with version DOI [10.5281/zenodo.21400718](https://doi.org/10.5281/zenodo.21400718) and its own immutable commit. [Concept DOI 10.5281/zenodo.21382966](https://doi.org/10.5281/zenodo.21382966) resolves to the latest software version and should not replace the matching version DOI when exact reproduction is required.
 
 The Zenodo release file `hmk-228674/TTMD6-functional-G-theory-analysis-v1.0.0.zip` was downloaded and validated after publication:
 
@@ -58,7 +68,7 @@ The Zenodo release file `hmk-228674/TTMD6-functional-G-theory-analysis-v1.0.0.zi
 - SHA-256: `6da90f49aaebe52662f94f14b55c7e2b5126f125f3ab3b6fd25beb53c96c2230`;
 - ZIP integrity test: passed with no errors.
 
-This software archive contains code, documentation, figures, figure source data, and selected derived results. It does not contain the third-party TTMD6 raw coordinate archive. Raw-input identity and software-release identity are deliberately documented as separate provenance layers.
+The `v1.0.0` checksum values above identify only that historical Zenodo ZIP; they must not be copied into `v1.0.1` metadata. Each software archive contains code, documentation, figures, figure source data, and selected derived results but not the third-party TTMD6 raw coordinate archive. Raw-input identity and software-release identity are deliberately documented as separate provenance layers.
 
 ## Privacy and ethics boundary
 

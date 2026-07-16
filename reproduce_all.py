@@ -41,6 +41,7 @@ SCRIPTS = {
     "continuous": SCRIPT_DIR / "08_continuous_threshold_bootstrap.py",
     "assumptions": SCRIPT_DIR / "09_assumption_influence_sensitivity.py",
     "pointwise": SCRIPT_DIR / "10_global_pointwise_bootstrap.py",
+    "cohort_estimand": SCRIPT_DIR / "11_cohort_estimand_sensitivity.py",
     "reml": SCRIPT_DIR / "run_action_specific_reml.py",
 }
 
@@ -288,6 +289,15 @@ def command_plan(a: argparse.Namespace, root: Path, out: Path) -> list[list[obje
             "--n-bootstrap", a.n_bootstrap,
             "--seed", a.seed,
         ],
+        [
+            py, SCRIPTS["cohort_estimand"],
+            "--ttmd6-root", root,
+            "--manifest", prep / "tables" / "Table_01_ArchiveManifest_All12000.csv",
+            "--duplicates", prep / "tables" / "Table_03_ExactPairDuplicates.csv",
+            "--out", w / "reanalysis_structural" / "cohort_estimand",
+            "--n-bootstrap", a.n_bootstrap,
+            "--seed", a.seed + 2,
+        ],
         [py, SCRIPTS["figures"], "--root", out, "--out", out / "figures_final"],
     ]
 
@@ -350,6 +360,18 @@ def validate_outputs(out: Path, a: argparse.Namespace, preflight_info: dict) -> 
     assert_n90(w / "reanalysis_hampel" / "results" / "Table_R2_FullBalanced_Integrated.csv", HAMPEL_N90)
     assert_n90(w / "reanalysis_fixed8" / "results" / "Table_R2_FullBalanced_Integrated.csv", FIXED8_N90)
 
+    cohort_summary = json.loads(
+        (w / "reanalysis_structural" / "cohort_estimand" / "COHORT_ESTIMAND_SENSITIVITY_SUMMARY.json")
+        .read_text(encoding="utf-8")
+    )
+    if cohort_summary.get("exact_pair_records_removed") != 8:
+        raise AssertionError("Expected eight exact paired-record removals in the deduplication scenario")
+    if cohort_summary.get("backhand_drive_racket_n90") != {
+        "L2_trace_ratio": 27,
+        "phase_mean_pointwise_ratio": 17,
+    }:
+        raise AssertionError("Backhand-drive aggregation regression check failed")
+
     for analysis in ("reanalysis_structural", "reanalysis_hampel", "reanalysis_fixed8"):
         run = json.loads((w / analysis / "results" / "RUN_SUMMARY.json").read_text(encoding="utf-8"))
         if not run.get("self_tests_all_passed"):
@@ -377,6 +399,11 @@ def validate_outputs(out: Path, a: argparse.Namespace, preflight_info: dict) -> 
         w / "reanalysis_structural" / "assumption_influence" / "Table_S_PeakRegistrationSensitivity.csv",
         w / "reanalysis_structural" / "assumption_influence" / "Table_S_BackhandDriveInfluenceAndFlags.csv",
         w / "reanalysis_structural" / "assumption_influence" / "Table_S_BootstrapDiagnostics.csv",
+        w / "reanalysis_structural" / "cohort_estimand" / "Table_S_CohortAndDedupSensitivity.csv",
+        w / "reanalysis_structural" / "cohort_estimand" / "Table_S_CohortBootstrapThresholds.csv",
+        w / "reanalysis_structural" / "cohort_estimand" / "Table_S_FunctionalAggregationComparison.csv",
+        w / "reanalysis_structural" / "cohort_estimand" / "Table_S_ExactDuplicateRemovalAudit.csv",
+        w / "reanalysis_structural" / "cohort_estimand" / "Table_S_14JointAnatomicalMapping.csv",
     ]
     required.extend(
         out / "figures_final" / f"{name}.tif"
@@ -411,6 +438,8 @@ def validate_outputs(out: Path, a: argparse.Namespace, preflight_info: dict) -> 
             "primary_action_specific_R_L2_90": "PASS",
             "hampel_sensitivity_R_L2_90": "PASS",
             "fixed8_common_composition_R_L2_90": "PASS",
+            "cohort_boundary_and_exact_deduplication_sensitivity": "PASS",
+            "trace_vs_phase_mean_pointwise_thresholds": "PASS",
             "reml_self_tests": "PASS",
             "forbidden_stale_QC_WARNING": "ABSENT",
             "required_tables_and_figures": "PASS",
